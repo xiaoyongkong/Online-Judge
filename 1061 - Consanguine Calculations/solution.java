@@ -122,13 +122,10 @@ class Main {
             sb.append(pcBT.get(0));
             sb.append(pcRH.get(0));
           }
-
           child = sb.toString();
         } else child="IMPOSSIBLE";
       }
-      
       System.out.printf("Case %d: %s %s %s\n", testCase++, p1, p2, child);
     }
   }
-
 }
