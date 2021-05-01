@@ -94,36 +94,44 @@ class Main {
         
         if (p1.equals("?")) p1=ans;
         else p2=ans;
+
       } else {
-        char p1RH=p1.charAt(p1.length()-1), p2RH=p2.charAt(p2.length()-1);
-        ArrayList<String> pcRH=new ArrayList<>();
+
+        char p1RH = p1.charAt(p1.length()-1), p2RH=p2.charAt(p2.length()-1);
+        ArrayList<String> pcRH = new ArrayList<>();
         pcRH.add("-");
-        if (p1RH!='-' || p2RH!='-') pcRH.add("+");
+        if (p1RH != '-' || p2RH != '-') pcRH.add("+");
         
-        String p1BT=p1.substring(0, p1.length()-1);
-        String p2BT=p2.substring(0, p2.length()-1);
+        String p1BT = p1.substring(0, p1.length()-1);
+        String p2BT = p2.substring(0, p2.length()-1);
         
-        ArrayList<String> pcBT=new ArrayList<>();
-        for (String split : btTable[btToIndex.get(p1BT)][btToIndex.get(p2BT)].split(",")) if (split.length()>0) pcBT.add(split);
+        ArrayList<String> pcBT = new ArrayList<>();
+        for (String split : btTable[btToIndex.get(p1BT)][btToIndex.get(p2BT)].split(",")) 
+          if (split.length() > 0) pcBT.add(split);
         
-        if (pcBT.size()>0 && pcRH.size()>0) {
-          StringBuilder sb=new StringBuilder();
-          if (pcBT.size()!=1 || pcRH.size()!=1) {
+        if (pcBT.size() > 0 && pcRH.size() > 0) {
+          StringBuilder sb = new StringBuilder();
+
+          if (pcBT.size() != 1 || pcRH.size() != 1) {
             sb.append("{");
+
             for (String bt : pcBT) for (String rh : pcRH) {
+
               sb.append(bt);
               sb.append(rh);
               sb.append(", ");
             }
             sb.setLength(sb.length()-2);
             sb.append("}");
+
           } else {
 
             sb.append(pcBT.get(0));
             sb.append(pcRH.get(0));
           }
           child = sb.toString();
-        } else child="IMPOSSIBLE";
+
+        } else child = "IMPOSSIBLE";
       }
       System.out.printf("Case %d: %s %s %s\n", testCase++, p1, p2, child);
     }
