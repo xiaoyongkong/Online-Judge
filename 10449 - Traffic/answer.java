@@ -42,7 +42,7 @@ class Main {
         int src = Integer.parseInt(st.nextToken())-1;
         int dest = Integer.parseInt(st.nextToken())-1;
         int weight = business[dest] - business[src];
-        edges.add(new Edge(src, dest, Math.pow(weight, 3)));
+        edges.add(new Edge(src, dest, (weight * weight * weight)));
         adjMat[src][dest] = true;
       }
       
