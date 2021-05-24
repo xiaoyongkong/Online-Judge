@@ -38,7 +38,7 @@ class Main {
       st = new StringTokenizer(br.readLine());
       int currX = Integer.parseInt(st.nextToken())-1;
       int currY = Integer.parseInt(st.nextToken())-1;
-      boolean quit;
+      boolean quit = false;
       String s;
       
       while ((s = br.readLine()) != null && !s.isEmpty() && !quit) {
